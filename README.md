@@ -1,3 +1,0 @@
-# javascript
-Advanced Programming Techniques
-
