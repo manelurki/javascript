@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://maeyler.github.io/favicon.ico">
+    <title>xxx </title>
+
+
+</head>
+
+<body>   <!-- HTML comment: Modify all items marked xxx -->
+
+
+
+<h2 style="color:#76B763">Temperature Converter</h2>
+
+
+<p >
+  <label style="color:#76B763">F: </label>
+  <input id="outputFahrenheit" type="number"  oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+</p>
+<label style="color:#76B763">C: </label>
+  <input id="outputCelcius" type="number"  oninput="temperatureConverter1(this.value)" onchange="temperatureConverter1(this.value)">
+</p>
+
+<script>
+function temperatureConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").value=(valNum-32)/1.8;
+}
+function temperatureConverter1(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputFahrenheit").value=(valNum*1.8)+32;
+}
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
