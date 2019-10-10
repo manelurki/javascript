@@ -2,7 +2,7 @@
 
 Class Work : 
 
-[CW#1]: class work 1(https://manelurki.github.io/javascript/cw%231.png)
+[CW#1](https://manelurki.github.io/javascript/cw%231.png) : class work 1
 
 [CW#2 - 1]: class work 2 (counting)(https://manelurki.github.io/javascript/Counting.html)
 
