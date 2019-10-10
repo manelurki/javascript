@@ -1,6 +1,7 @@
                                         #Advanced Programming Techniques
 
 Class Work : 
+
 [CW#1](https://manelurki.github.io/javascript/cw%231.png)
 
 [CW#2 - 1](https://manelurki.github.io/javascript/Counting.html)
