@@ -10,5 +10,7 @@ Class Work :
            
 [CW#3]( https://manelurki.github.io/javascript/cw%233.PNG): class work 3
 
+[CW#4](https://manelurki.github.io/javascript/cw%234.html): class work 4
+
 Home Work :
 
