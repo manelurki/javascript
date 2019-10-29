@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>HW2</title>
+</head>
+
+<body >
+
+<h1>Student Database</h1>
+<script>
+  
+  class Course
+{
+    constructor (id, time, date, classList)
+    {
+        this.id= id;
+        this.time = time;
+        this.date = date;
+        this.classList = classList;
+    }
+    toString ()
+    {
+        return this.id+'';
+    }
+}
+
+class Database
+{
+    constructor ()
+      {
+        this.courses =  new Map()
+        this.readData()
+      }
+    
+     
+    readData()
+    {
+       var url = "https://maeyler.github.io/JS/data/Courses.txt"
+       fetch(url)
+       .then(res => res.text()) 
+       .then(res => [this.addCourses(res)])
+    }
+    
+  addCourses(txt)
+   {
+    
+      let a = txt.split("\n");
+
+      for (let line of a)
+      {
+           let b = line.split("\t");
+           let id = b[0], time = b[1], date = b[2];
+           let list = [];
+           for (let i=3; i<b.length; i++){list.push(b[i]);}
+
+           const course = new Course(id, time, date, list)
+           this.courses.set(course.id, course)
+      }
+
+      
+   }
+
+   coursefind(id){
+
+    var b = "";
+    for (let cours of this.courses.values()){
+      
+        if(cours==id){
+          b+=+ ""+"saat: "+cours.time+"  \n"+"tarih: "+cours.date + "\n"+"list: "+cours.classList;
+        }
+
+      
+    }
+  
+    return (b);
+
+  }
+  
+}
+</script>
+<script>
+"use strict";
+var d = new Database()
+
+
+</script>
+
+<button onclick="txt.innerText=d.coursefind(coursest.value)"  >courses time</button>  <input id='coursest'></input>
+<br><br>
+
+
+
+<br>
+<style>
+
+input
+ {
+  display: inline-block;
+  float: left;
+
+ }
+ button
+ {
+  width: 140px; 
+  background-color: #85e091;
+
+ }
+ h1{ text-shadow: 2px 2px #85e091;}
+
+</style>
+
+<p id="txt" style="color:#5c5c3d; font-size: 20px; border:1px; " ></p>
+
+</body>
+</html>
