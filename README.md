@@ -12,7 +12,7 @@ Class Work :
 
 [CW#4](https://manelurki.github.io/javascript/cw%234.html): class work 4
 
-[CW#4](https://manelurki.github.io/javascript/cw%235/EloquentJS.html): class work 5
+[CW#5](https://manelurki.github.io/javascript/cw%235/EloquentJS.html): class work 5
 
 
 Home Work :
