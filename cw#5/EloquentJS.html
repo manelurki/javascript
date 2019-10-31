@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://maeyler.github.io/JS/sss/inspector.css" 
+          rel="stylesheet" media="all">
+    <link rel="icon" href="../images/icon192.png">
+    <script src="https://maeyler.github.io/JS/sss/inspector.js"></script>
+    <script src="c4_data.js"></script>
+    <script src="c6_object.js"></script>
+    <script src="Quiz.js"></script>
+    <script src="Async.js"></script>
+    <script src="Database.js"></script>
+
+    <title>Eloquent JavaScript </title>
+</head>
+
+<body>
+<p><b id=docName></b> &nbsp;
+<a href="https://manelurki.github.io/javascript/">Read me</a> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/Turkish">Turkish</a>
+</p>
+<div id=sss></div>
+<pre id=disp1></pre>
+<img id=disp2 />
+<script>
+class Point
+{
+	constructor(x,y)
+	{
+		this.x=x
+		this.y=y
+	}
+	toString()
+	{
+		return "(" + this.x + "," + this.y + ")"
+	}
+}
+class Point3D extends Point
+{
+	constructor(x,y,z)
+	{
+		super(x,y)
+		this.z=z
+	}
+	toString()
+	{
+		return "(" + this.x + "," + this.y + "," + this.z + ")"
+	}
+}
+</script>
+<script>
+
+
+	class Cw5 extends Menu
+{
+	
+constructor()
+{
+	super()
+	
+	this.student=new Student(1721221204,"manel turki",2.35)
+	this.student.courses.push("Blm305")
+	this.course= new Course("blm305","01.00","31.10.2019","B122")
+	this.point3d= new Point3D(2,3,4)
+	this.point= new Point(2,3)
+}	
+}
+	
+	"use strict";
+var a, b, c, code;  //global variables
+function init() {
+    let len = 123, name = "Circle", pi = Math.PI;
+    a = [0, 11, "22", "abc"];
+    c = {len, name, pi};
+    
+
+    
+    display(new Chap4());
+    display(new Chap6());
+    display(new Quiz());
+    MENU = new Cw5(); //global
+    display(MENU); 
+
+    MENU = new Async();
+}
+    docName.innerText = "Inspector "+VERSION;
+    try {
+        inspect(sss, init); //makes the table
+        inp.value = "new Date()";
+    } catch(e) {
+        reportError(e);
+    }
+</script>
+<p> homework:</p>
+<p><a href="https://manelurki.github.io/javascript/cw%231.png">cw1</a> </p>
+<a href="https://manelurki.github.io/javascript/Counting.html">cw2 counting/</a>
+<a href="https://manelurki.github.io/javascript/temperature.html">cw2 temperature</a> </p>
+<p><a href="https://manelurki.github.io/javascript/cw%233.PNG">cw3</a> </p>
+<p><a href="https://manelurki.github.io/javascript/cw%234.html">cw4 </a> </p>
+
+</body>
+</html>
