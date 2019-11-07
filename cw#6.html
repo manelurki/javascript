@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>file operation</title>
+</head>
+
+<script>
+    "use strict";
+   var outputfile;
+   var inputfile=[];
+   
+   var counter =0;
+var temp="";
+    function fileSelect(evt) {
+        var files = evt.files; 
+        for (let file of files) {
+            let reader = new FileReader();
+            reader.onload = function () {
+                inputfile.push({text:reader.result,name:file.name,type:file.type,data:file.lastModifiedDate});
+            }
+            reader.readAsText(file, "UTF-8");
+        }
+    }
+  var fetchtxt="";
+    function readText() {
+      fetchtxt=url.value;
+    if(fetchtxt.endsWith(".txt") || fetchtxt.endsWith(".java") || fetchtxt.endsWith(".md") || fetchtxt.endsWith(".js")){
+     // com.disabled=true;
+        fetch(url.value)
+            .then(r => r.text()).then(showtxt)
+        }else{
+    alert('just txt/ java/ md/js')
+    };
+    }
+  var tempcompare="";
+    function compare(txt) {
+     for(let i=0;i<inputfile.length;i++){
+      if(inputfile[i].text==outputfile){
+      console.log("true")
+      tempcompare+="("+inputfile[i].name+") this file is the same \n" ;
+    }else{
+            tempcompare+="("+inputfile[i].name+" ) this file is different \n"  ;      
+    }
+     }
+     outofarr.innerText=tempcompare;
+    
+  }
+  function showtxt(txt){
+    var outtxt=txt;
+    outputfile=txt;
+    URL.innerText=fetchtxt;
+   strtxt.innerText=fetchtxt+" "+' is fetched ';
+  }
+
+  
+</script>
+<body> <h2 id=title></h2> </body>
+
+   
+    <div class="control">
+        <p> enter the url here:
+        <input type="url" id=url value=""
+               placeholder="https://example.com"
+               pattern="https://.txt" size="50" required />  <input type=button value="Read File" onClick="readText()"><br>
+               <b> example</b>
+  <b> https://maeyler.github.io/JS/data/Students.txt </b>
+ </p>  </div>
+
+
+
+<body><div>
+<p>select file(s):</p>
+    <input type=file id=button onChange='fileSelect(this)' multiple />
+  </div>
+    <br>
+
+    <input type=button id=com value="Compare"  onClick="compare()" >
+
+    <pre id=out></pre>
+
+  <pre id=strtxt></pre>
+
+    
+  
+    <pre id=outofarr></pre>
+    <pre id=URL></pre>
+    
+  
+
+  
+
+    <script>
+        title.innerText = document.title;
+
+    </script>
+
+</body>
+
+</html>
