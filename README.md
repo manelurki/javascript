@@ -14,6 +14,7 @@ Class Work :
 
 [CW#5](https://manelurki.github.io/javascript/cw%235/EloquentJS.html): class work 5
 
+[CW#6](https://manelurki.github.io/javascript/cw%236.html): class work 6
 
 Home Work :
 
