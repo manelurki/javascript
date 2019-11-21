@@ -16,5 +16,7 @@ Class Work :
 
 [CW#6](https://manelurki.github.io/javascript/cw%236.html): class work 6
 
+[CW#7](https://manelurki.github.io/javascript/cw7.html): class work 7
+
 Home Work :
 
