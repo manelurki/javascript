@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>COMPARE MAP AND ARRAY</title>
+
+<script>
+class Student
+{
+    constructor (id, name, gpa, courses)
+    {
+        this.id = id;
+        this.name = name;
+        this.gpa = gpa;
+        this.courses = courses;
+        
+    }
+    toString ()
+    {
+        return this.id+'';
+    }
+    
+}
+class Database
+{
+    constructor ()
+      {
+        this.studentsMap = new Map()
+        this.studentsArray= []
+        this.readSData()
+      }
+           
+     readSData ()
+     {
+        var url = "https://maeyler.github.io/JS/data/Students.txt"
+        fetch(url)
+        .then(res => res.text())
+        .then(res => [this.addStudents(res)]) 
+     }
+     
+    addStudents(txt)
+     {
+      let a = txt.split("\n");
+	 
+	  for (let line of a)
+       {
+          let b = line.split("\t");
+          let id = b[0], name = b[1], gpa = b[2];
+          let list = [];
+          for (let i=3; i<b.length; i++){list.push(b[i]);}
+          
+     	  const std = new Student(id, name, gpa, list);
+    	  this.studentsMap.set(std.id, std);
+    	  this.studentsArray.push(std.id);
+		}
+            
+	}
+}
+let s = new Database()
+let countarray=0
+let countmap=0
+function timing() {
+    let timeArray = 0
+    let timeMap = 0
+   
+    
+    for(let i=0; i<10000; i++)
+    {
+	    id=(116690000+ Math.floor((Math.random() * 1000) + 1000)).toString();
+	    
+	    let arrayTime = performance.now(); 
+	    if(s.studentsArray.includes(id))
+			countarray+=1
+		 timeArray += performance.now() - arrayTime
+        let mapTime = performance.now();
+		if(s.studentsMap.has(id))
+			countmap+=1
+		
+		timeMap+= performance.now() - mapTime
+    }
+    
+  
+	
+    let a= "Array: "+timeArray.toPrecision(3)+" msec" + "\nresult: " + countarray
+    let m= "Map: "  +timeMap.toPrecision(3)+" msec" + "\nresult: " + countmap
+    out.innerText += "\n\n student id number:"+id+"\n\n"+a + "\n\n" + m + "\n_________________________________________________________________________";
+    countarray=0
+    countmap=0
+    
+       
+}
+ function delate()
+    {
+	   out.innerText=""
+    }
+    
+    
+</script>
+</head>
+
+<body>
+<h2 id=title style="text-align: center; color:#12a081;"></h2>
+<button id=tim onclick="timing()">compare</button>
+<button id=del  onclick="delate()">delate</button>
+
+<p id=out></p>
+
+<script>
+    title.innerText = document.title;
+   
+</script>
+
+
+</body>
+<style >
+  body{text-align: center;
+border: double;
+margin: 30px;
+margin-left: 350px;
+margin-right: 350px;
+border-color: #12a081;
+  }
+  button{background-color: #12a081; width: 150px;}
+</style>
+</html>
