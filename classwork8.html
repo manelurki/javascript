@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://maeyler.github.io/JS/hard/Table%20maker.html -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" sizes="192x192" href="/JS/images/JS.png">
+    <p>links:</p>
+    <a href="https://manelurki.github.io/javascript/cw7.html">class work 7</a><br>
+    <a href="https://manelurki.github.io/javascript/">repo</a>
+    <title>Make a Table </title>
+  <style>
+   body { max-width: 440px; }
+    #sample { overflow-x: auto; }
+    table { border-collapse: collapse; }
+    th { color: blue; padding: 5px 5px; }
+    td { 
+        border: 3px solid blue; 
+        padding: 5px 5px; 
+        text-align: center; 
+        position: relative;
+    }
+    td:hover .tip {
+        visibility: visible;
+    }
+    td .tip {
+        visibility: hidden;
+        font-size: small;
+        background-color: blue;
+        color: white;
+        text-align: center;
+        padding: 5px 5px;
+        position: absolute;
+        left: 5px; 
+        top: 20px;
+    
+    }body{position: absolute;}
+    
+  </style>
+</head>
+</head>
+
+<body>
+<center>
+<h2 id="title"></h2>
+<table id="tablo" width="500px"><tbody><tr><th></th><th>Name</th><th>Diam</th><th>Mass</th><th>Radius</th><th>Period</th>
+
+</tr><tr><th></th><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td></tr><tr><th></th><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td></tr><tr><th></th><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td></tr><tr><th></th><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td></tr><tr><th></th><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td></tr><tr><th></th><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td></tr><tr><th></th><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td></tr><tr><th></th><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td><td><span class="tip"></span></td></tr>
+
+</tbody></table>
+
+</center>
+
+<script>
+
+	"use strict";
+
+	 let keys;
+  function toList(str) {
+    function toObject(x) {
+      let b = {}
+      for (let [i,s] of x.split('\t').entries())
+        b[keys[i]] = (isNaN(s)? s : Number(s))
+      return b
+    }
+      let [d0, ...data] = str.split('\n')
+       keys = d0.split('\t')
+         //console.log("Keys:", keys)
+      return data.map(toObject)
+  }
+
+	const TXT = 
+	`Name	Diam	Mass	Radius	Period
+Mercury	0.382	0.06	0.40	0.24
+Venus	0.949	0.82	0.72	0.62
+Earth	1.000	1.00	1.00	1.00
+Mars	0.532	0.11	1.52	1.88
+Jupiter	11.209	317.80	5.20	11.86
+Saturn	9.449	95.20	9.54	29.46
+Uranus	4.007	14.60	19.22	84.01
+Neptune	3.883	17.20	30.06	164.80`
+	
+	  
+  let x= toList(TXT)  //array of objects
+
+    let row = "<th></th>";
+    for (let j = 0; j <5; j++)
+        row += "<th>"+keys[j]+"</th>";
+
+    let text = "<tr>"+row+"</tr>";
+    for (let i = 0; i < 8; i++) {
+      row = "<th></th>";
+      //for (let j = 1; j <= n; j++) {
+          //let p = n*(i-1)+j;
+          //let s = "<span class=tip>C"+p+"</span>"
+      row += "<td>"+x[i].Name+"</td>" + "<td>"+(x[i].Diam)+"</td>" + "<td>"+x[i].Mass+"</td>" + "<td>"+x[i].Radius+"</td>" + "<td>"+x[i].Period+"</td>" ;   
+      //row += "<td>"+a[i].Name+"</td>" + "<td>"+a[i].Diam.toFixed(3)+"</td>" + "<td>"+a[i].Mass.toFixed(2)+"</td>" + "<td>"+a[i].Radius.toFixed(2)+"</td>" + "<td>"+a[i].Period.toFixed(2)+"</td>" ;   
+        text += "<tr>"+row+"</tr>";
+    }
+    //?
+
+    title.innerText = document.title
+    tablo.innerHTML = text; 
+
+</script>
+</body></html>
