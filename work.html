@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+
+	<style>
+#lamda {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif,center;
+  align-self: center;
+  border-collapse: collapse;
+  width: 70%;
+}
+body{background-color: #ecc6c6;}
+#lamda td, #lamda th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#lamda tr:nth-child(even){background-color: #f2f2f2;}
+
+
+#lamda tr:hover {background-color: #ddd;}
+
+td:hover {
+  background-color: #b3daff;
+}
+footer{background-color: #f2f2f2;
+ margin-bottom:  10px;
+ margin-top: 137px;
+}
+
+
+#lamda th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    
+     border: 1px solid black;
+}
+
+</style>
+</head>
+<body>
+<script type="text/javascript">
+    var exponential = 2.718281828;
+    var numerator, denominator;
+	var table='';
+    const L = [0.5, 1, 1.5, 2, 2.5, 3]
+table+='<tr>';
+table+='<td colspan="7" align="center" font-size= "90px">'+"poisson Probabilities For Different Values Of 𝛌 "+'</td>';
+ table+='</tr>';
+table+='<tr>';
+//satir yaptik burada
+table+='<td>'+"No of events"+'</td>';
+		for (var k = 0; k < L.length; k++){
+			
+			table+='<td>'+"𝛌= "+L[k]+'</td>';
+         }
+table+='</tr>';
+var x=0;
+        for ( var i =0 ; i <9; i++) {
+	    table+='<tr>';
+        table+='<td>'+"x= "+i+'</td>';
+
+           for (var j = 0; j<6; j++) {
+           table+='<td>'+ poisson(i,L[x])+'</td>';
+           x+=1
+           }
+        x=0
+         table+='</tr>';
+        }
+
+
+function poisson(k, landa) {
+
+    exponentialPower = Math.pow(exponential, -landa); // exponential ala puissance - lamda
+    landaPowerK = Math.pow(landa, k); // lamda a la puissance de k 
+    numerator = exponentialPower * landaPowerK;
+    denominator = fact(k); // factorial of k.
+    
+   var result=  (numerator / denominator)
+
+   
+
+    return  Math.round(result*10000)/10000; // virgulden sonra 4 basamak alsin 
+
+}// factoriel foknsyonu
+function fact(x) {
+   if(x==0) {
+      return 1;
+   }
+   return x * fact(x-1);
+   console.log(x*fact(x-1));
+}
+
+
+		document.write('<table  id="lamda">' +table+'</table>');
+	</script>
+<footer>
+  <pre>                            Done by: manel turki </pre>
+  <pre>                            student no: 1721221204</pre>
+
+</footer>
+
+</body>
+</html>
