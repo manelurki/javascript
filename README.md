@@ -20,6 +20,6 @@ Class Work :
 
 [CW#8](https://manelurki.github.io/javascript/classwork8.html): class work 8
 
-
 Home Work :
 
+[HW1](https://manelurki.github.io/javascript/work.html): homework 1
