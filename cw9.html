@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" sizes="192x192" href="/JS/images/JS.png">
+    <title>GitHub Users</title>
+
+  <style>
+    body {
+        max-width: 440px;
+    }
+    img {
+        padding-right: 110px; 
+        width: 180px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+<input type=text id=usr value=maeyler onChange="readUser()">
+<p id=out ></p>
+<hr />
+
+
+
+<script>
+
+"use strict";
+
+
+const NL = "\n", BR = "<BR>", 
+    URL = "https://api.github.com/users/"
+    
+function error(t) {
+    out.style.color = 'red'
+    out.innerText = t; console.log(t)
+}
+function listRepos(b) {
+    if (b.length) 
+      out.innerHTML += 
+        b.map(x => x.name).join(", ")
+}
+function userData(u) {
+    if (!u || !u.login) {
+      error(usr.value+' not found')
+      return
+    } 
+    //u.login is the same as usr.value
+    out.style.color = ''
+    out.innerHTML = ''
+    //start with a tiny image
+    let i = document.createElement("img")
+    i.src = u.avatar_url
+    i.align = "center"
+    i.with="1500px"
+    out.appendChild(i)
+    out.innerHTML += '<br><br>'
+    //add name 
+    let s = (u.name? u.name: u.login)
+  out.innerHTML +=  '<span style=" font-size: 30px; font-weight: bold;">'+ s+BR +'</span>'; console.log(s) 
+  // add user name
+    let g = (u.login? u.login: "there ara not nothing")
+  out.innerHTML += '<span style="  font-size: 20px; color:grey">'+ g+BR +'</span><br>'; console.log(g)
+
+console.log(u)
+ let q = (u.location? u.location: "there ara not location")
+  out.innerHTML += q+BR;console.log(q)
+    
+     let company = (u.company? u.company: "there ara not nothing")
+  out.innerHTML += company+BR;+"compnay"+ console.log(company)
+
+
+  //following
+    
+          //add link to GitHub 
+    let h = u.login+".github.io/"
+    let a = document.createElement("a")
+    a.href = "https://"+h
+    a.target = "NewTab"
+    a.innerHTML += h +BR
+    out.appendChild(a)
+   
+
+         let folowers = (u.followers? u.followers: " \n there are not followers")
+  out.innerHTML += '<span style="  font-size: 17px; color:red">' + "followers number is:"+folowers+BR+'</span>'; console.log(folowers)
+    
+    let following = (u.following? u.following: "0")
+  out.innerHTML += '<span style="  font-size: 17px; color:red">' + "following number is:"+following+BR+'</span>'; console.log(following)
+
+
+   
+   
+    //add repo count
+    ///// huna
+    let p = u.public_repos+" repos"
+   // out.innerHTML += BR+p+BR+BR
+    fetch(URL+u.login+"/repos")
+      .then(r => r.json()) 
+      .then().catch(error)
+}
+function readUser() {
+    fetch(URL+usr.value)
+      .then(r => r.ok? r.json() : null) 
+      .then(userData).catch(error)
+}
+
+    title.innerText = document.title
+   
+    out.innerText = "Reading data"
+    readUser()
+
+
+
+
+</script>
+
+</body>
+</html>
