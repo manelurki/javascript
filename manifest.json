@@ -2,7 +2,7 @@
   "name": "BLM305",
   "short_name": "BLM305",
   "description": "Advanced Programming work files",
-  "start_url": "https://manelurki.github.io/javascript/",
+  "start_url": "/javascript/",
   "display": "standalone",
   "background_color": "cyan",
   "theme_color": "cyan",
