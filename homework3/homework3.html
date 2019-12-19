@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body {
+  background: #EDD0EB;
+  
+}
+
+
+span {position: absolute;height: 20px;width: 20px;border-radius: 50%;transition: all 0.1s;}
+span.type1 {width: 30px;height: 5px;}
+span.type2 {width: 10px;height: 100px;}
+span.type3 {width: 100px;height: 10px;}
+
+button{
+width: 200px;
+margin-top: 250px;
+padding: 6px 18px;
+text-align: center;
+border-radius: 4px;
+position: relative;
+margin-left: 350px
+}
+
+p{
+text-align: center;
+font-size: 30px;
+}
+
+h1{
+	font-size: 60px;
+}
+</style>
+</head>
+<body>
+
+<h1 align="center" id="a">Rainbow car</h1>
+<button onClick="speedcar(); this.animate(t3, time)">FAST </button>
+<button onClick="speedcar1();this.animate(t3, time)">SLOW</button><br><br>
+
+<img src="aa.gif" id ="car" align="left" width="265" height="105"><br><br><br><br><br><br><hr>
+<script>
+
+ let time = {duration: 10000, iterations: Infinity}
+	
+	const t1 = { transform: ["translateX(0)", "translateX(300px)", "translateX(0)"] };
+	 const t3 = { background: ["yellow", "green", "orange", "yellow"] };
+	const t4 = { fontSize: ["500%", "450%", "400%", "470%", "600%"] };
+	
+	a.animate(t1, time);
+	a.animate(t4,time);
+
+window.addEventListener("mousemove",(e) => {
+let color1 = Math.floor(Math.random() * 200);
+let color2 = Math.floor(Math.random() *255);
+let color3 = Math.floor(Math.random() *100);
+let type = Math.floor(Math.random() *4);
+let direction = Math.floor(Math.random() * 10);//up down 
+let element = document.createElement("span");
+element.classList.add(`type${type}`);/////////
+element.style.opacity = "0.1";
+element.style.backgroundColor = `rgb(${color1},${color2},${color3})`;
+let anim = document.querySelector(".anim");// matches the first element in html
+
+
+	
+		
+let randomLeft = Math.floor(Math.random()*10);
+let randomTop = Math.floor(Math.random()*10 );
+element.style.left = e.x + randomLeft+'px';//////kan man7otch hathi tji frad blasa matba3ch souris
+element.style.top = e.y + randomTop+'px';////////
+anim.appendChild(element);
+
+
+element.animate([
+       { transform: 'translateY(0) scale(1)',opacity: '0.85'},
+       { transform: `translateY(${ (direction == 0) ? "-" : "+" }${100}px) ` + 'scale(1.5)',opacity: '0'},//fou9 wala louta 7asb - wala +
+],{
+duration: 1500,
+iterations: 1,
+});
+})
+
+function speedcar(){
+car.animate(Fast,1500);
+}
+function speedcar1(){
+car.animate(slow,5000);
+}
+const
+Fast = [{transform: 'translateX(0)'},{transform: 'translateX(1100px)'}],
+slow = [{transform: 'translateX(0)'},{transform: 'translateX(1100px)'}];
+title.innerText = document.title;
+</script>
+
+
+<div class="app-container">
+
+
+
+
+<div class="anim" ></div>
+</div>
+
+</body>
+</html>
