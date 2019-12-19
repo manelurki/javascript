@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Maze Game</title>
+    <style>
+      body {background-image: url("3.jpg");
+     background-repeat: no-repeat;
+      background-size: 1400px 800px;
+
+    }
+     .button {
+  background-color: #ffff99;
+  border: none;
+  color: #534f17;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  opacity:0.7;
+
+ }
+     
+    
+    </style>
+
+    
+    <body>
+    <div style="position: absolute; left:30%;">
+      <button id="easy" class="button" onclick="easy()">Easy</button>
+      <button id="meduim" class="button" onclick="medium()">Medium</button>
+      <button id="hard" class="button" onclick="hard()">Hard</button>
+      <br>
+      <br>
+      <label id="steps" style = "color:white;">steps: 0</label>
+    <div style="position: absolute; right:20%;">
+      <canvas id="canvas" width="525" height="525" style="margin-left:40%;border:4px solid orange;"></canvas>
+    </div>
+    
+      <script>
+      
+
+
+
+var canvas = document.getElementById("canvas")
+var ctx = canvas.getContext("2d");
+
+var rabbit = new Image();
+rabbit.src = "rabbit.png";
+
+var carrot = new Image();
+carrot.src = "carrot.png";
+
+var daisy = new Image();
+daisy.src = "daisy.png";
+var maze = [];
+
+var player = new Object({
+  x:0,y:0,loc: 0, steps: 0}
+);
+
+
+
+
+function easy(){
+
+document.getElementById("easy").disabled = true;
+document.getElementById("meduim").disabled = true;
+document.getElementById("hard").disabled = true;
+var array = [
+    [0,1,0,1,0,0,1,0,0,0,1,0,0,1,0],
+    [0,0,0,0,0,1,1,1,1,0,1,1,0,0,0],
+    [0,1,1,1,0,0,1,1,1,0,1,0,0,1,0],
+    [0,0,0,1,1,0,1,0,0,0,0,0,1,1,0],
+    [1,1,0,0,1,0,1,0,1,1,1,0,1,1,0],
+    [0,0,0,0,0,0,0,0,1,0,0,0,0,1,0],
+    [1,0,1,1,1,1,1,1,1,0,1,1,1,1,0],
+    [0,0,0,0,1,0,0,1,1,0,1,1,0,1,0],
+    [1,1,1,0,0,0,0,0,0,0,1,0,0,0,0],
+    [1,0,0,0,1,1,1,1,1,1,1,0,1,1,1],
+    [1,0,1,0,1,0,0,0,0,0,1,0,0,0,1],
+    [1,1,1,0,1,1,1,1,1,0,1,0,1,0,1],
+    [1,0,0,0,1,0,0,0,0,0,1,1,1,0,1],
+    [1,0,1,1,1,1,1,0,1,0,0,2,0,0,1],
+    [1,0,0,0,0,0,1,0,0,0,1,1,1,1,1]];
+  
+
+player = ({
+  x:5,y:7, steps: 0}
+);
+
+  var y = 0;
+
+
+  for (var i = 0;i < 15;i++){
+    var x = 0;
+    for (var j = 0;j < 15;j++){
+      maze.push({
+        "x":x,"y":y,"state":array[i][j]}
+      );
+      x++;
+    }
+    y++;
+  
+}
+  for (var i = 0;i < 15 * 15;i++){
+    if (maze[i].state == 1)
+      ctx.drawImage(daisy,maze[i].x * 35, maze[i].y * 35, 32, 32);
+    if (maze[i].state == 2)
+      ctx.drawImage(carrot,maze[i].x * 32, maze[i].y * 35, 32, 32);
+  }
+  ctx.drawImage(rabbit,player.x * 35,player.y * 35,35,35);
+  
+ 
+  
+}
+
+function medium(){
+
+document.getElementById("easy").disabled = true;
+document.getElementById("meduim").disabled = true;
+document.getElementById("hard").disabled = true;
+  var array = [
+    [1,0,0,0,0,0,1,1,1,1,1,1,1,1,1],
+    [1,0,1,0,1,1,1,0,0,0,0,0,0,0,0],
+    [2,0,1,0,0,0,1,0,1,0,1,1,1,1,0],
+    [0,0,1,1,1,0,0,0,1,0,1,0,0,0,0],
+    [0,1,1,0,1,1,1,1,1,0,1,0,1,1,1],
+    [0,1,1,0,1,0,1,0,0,0,0,0,0,0,0],
+    [0,0,1,0,1,0,1,0,1,1,1,1,1,1,0],
+    [1,1,1,0,0,0,1,0,0,1,0,0,0,0,0],
+    [0,0,1,1,1,0,1,1,1,1,0,1,1,1,1],
+    [1,0,1,0,0,0,1,0,0,0,0,0,0,0,1],
+    [1,0,1,0,1,1,1,0,1,1,1,1,1,0,1],
+    [1,0,1,0,1,0,0,0,1,0,0,0,1,0,1],
+    [1,0,1,0,1,0,1,1,1,0,1,0,1,0,1],
+    [1,0,0,0,0,0,0,0,0,0,1,0,1,0,1],
+    [1,1,1,1,1,1,1,0,1,1,1,0,0,0,1]];
+  
+player = ({
+  x:11,y:14, steps: 0}
+);
+
+var y = 0;
+
+for (var i = 0;i < 15;i++){
+  var x = 0;
+  for (var j = 0;j < 15;j++){
+    maze.push({
+      "x":x,"y":y,"state":array[i][j]}
+    );
+    x++;
+  }
+  y++;
+}
+  for (var i = 0;i < 15 * 15;i++){
+    if (maze[i].state == 1)
+      ctx.drawImage(daisy,maze[i].x * 35, maze[i].y * 35, 32, 32);
+    if (maze[i].state == 2)
+      ctx.drawImage(carrot,maze[i].x * 32, maze[i].y * 35, 32, 32);
+  }
+  ctx.drawImage(rabbit,player.x * 35,player.y * 35,35,35);
+  
+}
+
+function hard(){
+
+
+      var array = [
+    [1,0,1,1,0,1,0,0,0,1,0,0,0,1,0],
+    [1,0,0,0,0,1,0,1,0,1,0,1,0,1,0],
+    [1,1,1,1,0,1,0,1,0,0,0,1,0,0,0],
+    [0,0,0,1,0,0,0,1,0,1,1,1,1,1,0],
+    [0,1,0,1,1,1,0,1,0,0,0,0,1,0,0],
+    [0,1,0,0,0,1,0,1,1,1,1,0,1,0,1],
+    [0,1,1,1,0,0,0,0,1,0,1,0,1,0,1],
+    [0,0,0,0,0,1,1,0,0,0,1,0,1,0,1],
+    [0,1,0,1,1,1,1,0,1,0,0,0,0,0,0],
+    [0,1,0,1,0,0,0,0,1,0,1,1,1,0,1],
+    [0,1,0,1,0,1,0,1,1,0,0,1,0,0,0],
+    [0,1,0,0,0,0,0,0,0,0,1,0,1,1,1],
+    [0,1,1,1,1,1,1,1,1,1,0,0,2,0,0],
+    [0,1,0,0,0,0,0,1,0,1,0,1,1,1,1],
+    [0,0,0,1,1,1,0,0,0,0,0,1,0,0,0]];
+  
+player = ({
+  x:4,y:0, steps: 0}
+);
+
+var y = 0;
+for (var i = 0;i < 15;i++){
+  var x = 0;
+  for (var j = 0;j < 15;j++){
+    maze.push({
+      "x":x,"y":y,"state":array[i][j]}
+    );
+    x++;
+  }
+  y++;
+}
+
+  for (var i = 0;i < 15 * 15;i++){
+    if (maze[i].state == 1)
+     ctx.drawImage(daisy,maze[i].x * 35, maze[i].y * 35, 32, 32);
+    if (maze[i].state == 2)
+      ctx.drawImage(carrot,maze[i].x * 32, maze[i].y * 35, 32, 32);
+  }
+  ctx.drawImage(rabbit,player.x * 35,player.y * 35,35,35);
+  
+  
+  
+}
+
+
+
+</script>
+    </body>
+</html>
