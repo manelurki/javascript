@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src=Database.js></script>
+    <title>HW2</title>
+</head>
+
+<body >
+
+<h1 align="center">Student Database</h1>
+
+<script>
+"use strict";
+var d = new Database()
+
+
+</script>
+
+<table width="100%"><tr><td width="30%" >
+<button onclick="txt.innerText=d.randomStd()">Random</button> <br>
+<br>
+<button  onclick="txt.innerText=d.findgpaabov(gpaabv.value)"  >gpa above</button>  <input id='gpaabv' placeholder="write GPA"></input>
+
+<br><br>
+<button  onclick="txt.innerText=d.findgpaunder(gpaunder.value)"  >gpa under</button>  <input id='gpaunder' placeholder="write GPA"></input>
+
+<br><br>
+<button onclick="txt.innerText=d.findStdCourses(stdCourse.value)"  >Find Std Courses</button>  <input id='stdCourse' placeholder="Write student number"></input>
+
+
+<br><br>
+<button onclick="txt.innerText=d.findExam(exam.value)">schedule of exam</button> <input id='exam' placeholder="write student number"></input>
+<br><br>
+<button onclick="txt.innerText=d.findcoursesstdlist(course.value)">find courses student</button> <input id='course' placeholder="write id course(EECS241)"></input>
+<br><br>
+<button onclick="txt.innerText=d.examroom(room.value)">course list in a room</button> <input id='room' placeholder="write course code"></input>
+<br><br>
+<button onclick="txt.innerText=d.examroom1(room1.value)">course nbr in a room</button> <input id='room1' placeholder="write course code"></input>
+<p>One more query of my choice: </p>
+<button onclick="txt.innerText=d.averagegpa(ders1.value)">average of gpa</button> <input id='ders1' placeholder="write id course(ENGR251)"></input>
+<br><br>
+<button onclick="txt.innerText=d.getbyname(nm.value)">get the same names</button> <input id='nm' placeholder="write student name"></input>
+<br><br><button onclick="txt.innerText=d.delate()">delate</button><pre></pre><button onclick="txt.innerText=d.randomcours()">random cours</button>
+
+</td>
+<td width="70%" style="text-align: center;"><p id="txt" style="color:#5c5c3d; font-size: 20px; border:1px;" ></p><td>
+</tr>
+</table>
+<br>
+<style>
+body{
+
+  background-image:url("homework.jpeg");
+   background-repeat:no-repeat;
+   background-size: 100%;
+   opacity: 50%;
+
+
+
+}
+input
+ {
+  display: inline-block;
+  float: left;
+
+ }
+ button
+ {
+  width: 140px; 
+  background-color: #85e091;
+
+ }
+ h1{ text-shadow: 2px 2px #85e091;}
+
+</style>
+
+
+
+
+
+
+</body>
+</html>
