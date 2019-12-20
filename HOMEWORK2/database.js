@@ -30,7 +30,7 @@ class Student
     }
 }
 
-class Database
+class database
 {
     constructor ()
       {
