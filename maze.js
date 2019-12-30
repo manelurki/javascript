@@ -100,7 +100,7 @@ var btnR = document.getElementById("up");
 var menel = 0
 
 btnR.onclick = function(){
-
+ball.y=ball.y-8
     keyPressed.up=true
 
     menel=1
@@ -119,6 +119,7 @@ var me = 0
 
 btn1.onclick = function(){
     keyPressed.left=true
+    ball.x=ball.x-12
     me=1
 }
 
@@ -136,6 +137,7 @@ var men = 0
 
 btn.onclick = function(){
     keyPressed.right=true
+    ball.x=ball.x+15
     men=1;
 }
 
@@ -153,6 +155,7 @@ var mene = 0
 
 btn5.onclick = function(){
     keyPressed.down=true
+ball.y=ball.y+10
     mene=1;
 }
 
@@ -366,3 +369,4 @@ start();
     var oneMinutes = 60 * 1,
         display = document.querySelector('#time');
     startTimer(oneMinutes, display);
+
