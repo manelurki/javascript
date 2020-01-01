@@ -277,8 +277,10 @@ function wallsCheck(){
 // Check function if ball touchs goal square
 function goalCheck(){
 	if(RectCircleColliding(ball, Goal)){
-		alert("YOU WiN!");
+		
 		document.location.reload();
+		alert("YOU WiN!");
+		
 	}
 }
 
