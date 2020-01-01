@@ -1,4 +1,4 @@
-// Make canvas statements
+
 const canvas = document.querySelector('canvas');
 
 canvas.width = 800;
@@ -9,7 +9,7 @@ const c = canvas.getContext('2d');
 let w=5
 let l,r,u,d=0
 
-// Object that checks if key is pressed
+
 let keyPressed = {
 	left: false,
 	right: false,
@@ -17,7 +17,7 @@ let keyPressed = {
 	down: false
 }
 
-// Goal object
+
 const Goal = {
 	x: canvas.width -100,
 	y: canvas.height - 70,
@@ -33,7 +33,7 @@ const Goal = {
 	}
 }
 
-// Ball object
+
 function Ball(x, y, radius, dx, dy){
 	this.x = x;
 	this.y = y;
@@ -55,10 +55,9 @@ function Ball(x, y, radius, dx, dy){
 
 ////
 	this.move = function(){
-		//x y raduis dx dy
-		//let ball = new Ball(22,22, 20, 20, 7);
+		
 
-		// Conditions that checks if ball is greater or less than canvas width
+		
 		if(keyPressed.left){
 			if((this.x - radius > 0) ){
 				this.x -= this.dx-10;
@@ -71,7 +70,6 @@ function Ball(x, y, radius, dx, dy){
 			}
 		}
 
-		// Conditions that checks if ball is greater or less than canvas height
 		if(keyPressed.up  ){
 			if((this.y - radius > 0)){
 				this.y -= this.dy-5;
@@ -237,11 +235,10 @@ new Wall(450, canvas.height - 125, 5, 125)
 
 
 
-// Create the ball using the object 
+// creer le ballon
 let ball = new Ball(22,22, 7, 15, 7);
 
-
-// Check function if ball touchs walls
+//kan ymesou 7yout
 function RectCircleColliding(circle,rect){
     let distX = Math.abs(circle.x - rect.x-rect.width/2);
     let distY = Math.abs(circle.y - rect.y-rect.height/2);
@@ -274,7 +271,7 @@ function wallsCheck(){
 
 }
 
-// Check function if ball touchs goal square
+// final gagner ou nn
 function goalCheck(){
 	if(RectCircleColliding(ball, Goal)){
 		
